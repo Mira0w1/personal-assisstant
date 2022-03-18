@@ -1,1 +1,1 @@
-# personal-assisstant
+# personal-assisstant Machine Learning Application
