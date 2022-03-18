@@ -12,7 +12,7 @@ import json
 import requests
 
 
-print('Loading your AI personal assistant - G One')
+print('Loading your ML personal assistant - crescentia')
 
 engine=pyttsx3.init('sapi5')
 voices=engine.getProperty('voices')
@@ -26,19 +26,19 @@ def speak(text):
 def wishMe():
     hour=datetime.datetime.now().hour
     if hour>=0 and hour<12:
-        speak("Hello,Good Morning")
-        print("Hello,Good Morning")
+        speak("Hello, Good Morning")
+        print("Hello, Good Morning")
     elif hour>=12 and hour<18:
-        speak("Hello,Good Afternoon")
-        print("Hello,Good Afternoon")
+        speak("Hello, Good Afternoon")
+        print("Hello, Good Afternoon")
     else:
-        speak("Hello,Good Evening")
-        print("Hello,Good Evening")
+        speak("Hello, Good Evening")
+        print("Hello, Good Evening")
 
 def takeCommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
-        print("Listening...")
+        print(" I am Listening...")
         audio=r.listen(source)
 
         try:
@@ -46,11 +46,11 @@ def takeCommand():
             print(f"user said:{statement}\n")
 
         except Exception as e:
-            speak("Pardon me, please say that again")
+            speak("What was that? Please say that again")
             return "None"
         return statement
 
-speak("Loading your AI personal assistant G-One")
+speak("Loading your ML GenZ personal assistant Crescentia")
 wishMe()
 
 
@@ -58,14 +58,14 @@ if __name__=='__main__':
 
 
     while True:
-        speak("Tell me how can I help you now?")
+        speak("What can I do for you now?")
         statement = takeCommand().lower()
         if statement==0:
             continue
 
         if "good bye" in statement or "ok bye" in statement or "stop" in statement:
-            speak('your personal assistant G-one is shutting down,Good bye')
-            print('your personal assistant G-one is shutting down,Good bye')
+            speak('your personal assistant Crescentia is shutting down, Good bye')
+            print('your personal assistant Crescentia is shutting down, Good bye')
             break
 
 
@@ -96,7 +96,7 @@ if __name__=='__main__':
         elif "weather" in statement:
             api_key="8ef61edcf1c576d65d836254e11ea420"
             base_url="https://api.openweathermap.org/data/2.5/weather?"
-            speak("whats the city name")
+            speak("what's the city name")
             city_name=takeCommand()
             complete_url=base_url+"appid="+api_key+"&q="+city_name
             response = requests.get(complete_url)
@@ -130,22 +130,22 @@ if __name__=='__main__':
             speak(f"the time is {strTime}")
 
         elif 'who are you' in statement or 'what can you do' in statement:
-            speak('I am G-one version 1 point O your persoanl assistant. I am programmed to minor tasks like'
-                  'opening youtube,google chrome,gmail and stackoverflow ,predict time,take a photo,search wikipedia,predict weather' 
-                  'in different cities , get top headline news from times of india and you can ask me computational or geographical questions too!')
+            speak('I am Crescentia version 1 point O your Gen Z personal assistant. I am programmed to complete minor tasks that you are too lazy to do. Like'
+                  'opening web broswers, predict time, take a screenshots, search wikipedia, tell weather' 
+                  'in different cities, find top headline news, take calls, and so much more.')
 
 
         elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
-            speak("I was built by Mirthula")
-            print("I was built by Mirthula")
+            speak("I was developed by Maza0w1")
+            print("I was developed by Maza0w1")
 
         elif "open stackoverflow" in statement:
             webbrowser.open_new_tab("https://stackoverflow.com/login")
             speak("Here is stackoverflow")
 
         elif 'news' in statement:
-            news = webbrowser.open_new_tab("https://timesofindia.indiatimes.com/home/headlines")
-            speak('Here are some headlines from the Times of India,Happy reading')
+            news = webbrowser.open_new_tab("https://newyorktimes.newyorktimes.com/home/headlines")
+            speak('Here are some headlines from the New York Times, Happy reading!')
             time.sleep(6)
 
         elif "camera" in statement or "take a photo" in statement:
@@ -157,7 +157,7 @@ if __name__=='__main__':
             time.sleep(5)
 
         elif 'ask' in statement:
-            speak('I can answer to computational and geographical questions and what question do you want to ask now')
+            speak('I can answer any question.')
             question=takeCommand()
             app_id="R2K75H-7ELALHR35X"
             client = wolframalpha.Client('R2K75H-7ELALHR35X')
@@ -168,7 +168,7 @@ if __name__=='__main__':
 
 
         elif "log off" in statement or "sign out" in statement:
-            speak("Ok , your pc will log off in 10 sec make sure you exit from all applications")
+            speak("Okay, your pc will log off in 10 sec. Be sure to close all applications.")
             subprocess.call(["shutdown", "/l"])
 
 time.sleep(3)
